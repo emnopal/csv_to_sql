@@ -6,11 +6,11 @@ from utils.read_files import read_files
 from utils.datatypes import convert_datatypes
 from utils.profiling import timeit
 
-class Convertion(Connection):
+class Convert(Connection):
 
     NULL = "NULL"
 
-    def __create_table(self, csv_file, table_name, columns, path, index=False):
+    def __create_table(self, csv_file, table_name, columns, path, index=True):
         PATH_TO_TABLE = re.compile(r"[a-zA-Z]*")
         if not table_name:
             if "\\" in path:

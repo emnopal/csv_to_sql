@@ -1,5 +1,5 @@
 import os
-from src.convertion import Convertion
+from src.convert import Convert
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -9,5 +9,5 @@ username = os.environ['USERNAME']
 password = os.environ['PASSWORD']
 database = os.environ['DATABASE']
 
-conn = Convertion(host=host, user=username, password=password, database=database)
-conn.from_csv(path='csv_test.csv', index=True)
+conn = Convert(host=host, user=username, password=password, database=database)
+conn.from_csv(path='csv_test.csv')

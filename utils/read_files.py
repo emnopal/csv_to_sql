@@ -1,16 +1,18 @@
 import pandas as pd
 
+from utils.exceptions import FileNotSupported
+
 def read_files(file_path, *args, **kwargs):
     if ".csv" in file_path:
         df = pd.read_csv(file_path, *args, **kwargs)
-    if ".tsv" in file_path:
+    elif ".tsv" in file_path:
         df = pd.read_csv(file_path, sep='\t', *args, **kwargs)
-    if ".xlsx" in file_path:
+    elif ".xlsx" in file_path:
         df = pd.read_excel(file_path, *args, **kwargs)
-    if ".xls" in file_path:
+    elif ".xls" in file_path:
         df = pd.read_excel(file_path, *args, **kwargs)
-    if ".txt" in file_path:
+    elif ".txt" in file_path:
         df = pd.read_csv(file_path, *args, **kwargs)
     else:
-        print("File format not supported")
+        raise FileNotSupported("File format not supported")
     return df
